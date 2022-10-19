@@ -113,6 +113,7 @@ The model is trained on 16 kHz audio, so if the input audio has a different samp
 
 * Prediction/ Training is significantly faster if you run on GPU.
 
+* The prediction script loads the data with only 1 worker. If your computer contains more than 1 core - you can change 'num_workers' to #CORES. This change will allow the prediction to run faster.
 
 ## References
 

@@ -17,7 +17,7 @@ parser = argparse.ArgumentParser(description='predict pitch')
 
 
 
-parser.add_argument('--data', type=str, default='',
+parser.add_argument('--data', type=str, default='/Users/yaels/Downloads/PiMOD/f2nw0000.wav',
 					help='data path, can be directory with wav files or single wav file')
 
 parser.add_argument('--model', type=str, default='./model/6_decoders_MDB_KEELE.pth',help='the model to load')
@@ -70,7 +70,7 @@ for filename in files_list:
     test_dataset = PredictDataset(filename, args.window_stride)
     test_loader = torch.utils.data.DataLoader(
         test_dataset, batch_size=args.batch_size, shuffle=False,
-        num_workers=20, pin_memory=args.cuda)
+        num_workers=0, pin_memory=args.cuda)
 
     predict_list, conf = train_util.test_predict(test_loader, best_pitch_model, device, models_parts, slices_list, VOICING_THRESHOLD=min_pitch + 1)
     new_filename = os.path.basename(filename).replace(".wav", ".f0")
