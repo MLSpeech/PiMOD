@@ -31,7 +31,7 @@ Python 3.9+
 
 Download the code:
 
-git clone https://github.com/YaelSegal/PiMOD
+git clone https://github.com/MLSpeech/PiMOD
 
 ```
 python3 -m pip install --user virtualenv
